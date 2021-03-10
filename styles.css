@@ -3,7 +3,7 @@
     padding: 30px;
     border:1px solid #ccc;
 }
-.formulario p{
+.form-main p{
     width: 100%;
     font-size: 1.5em;
 }
@@ -12,7 +12,7 @@
     margin: 15px 0;
 }
 .form-group label, 
-.form-group span{
+{
     padding-left: 10px;
     font-size: 1.1em;
     display: block;
@@ -20,8 +20,8 @@
 }
 
 input[type=text],
-input[type=email],
-textarea{
+input[type=number]
+{
     width: 100%;
     padding-left: 10px;
     height: 30px;
