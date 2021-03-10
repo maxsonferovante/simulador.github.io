@@ -13,17 +13,38 @@
         <link rel="icon" sizes="192x192" type="image/png" href="images/icon/icon-256x256.png">
         <meta name="theme-color" content="#fff">
         
+        <title>Simulador de Propostas</title>
+	    
         
     </head>
     <body>
-        <label for="elemento">Nome completo</label>
-        <input type="text" class="form-control" placeholder="Digite seu nome completo">
+        <form role="form">
+	    <fieldset>
+            
+		<div class="form-group">
+            <label for="elemento">Nome completo</label>
+            <input type="text" class="form-control" placeholder="Digite seu nome completo">
+        </div>
         
-        <label for="elemento">CPF</label>
-        <input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00">
+        <div class="form-group">
+            <label for="elemento">CPF</label>
+            <input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00">
+        </div>
+        <div class="form-group">
+        <label for="exampleSelect">Seletor</label>
+		<select id="exampleSelect" class="form-control">
+				<option value="">Escolha uma opção</option>
+				<option value="">Proposta 1</option>
+                <option value="">Proposta 2</option>
+                <option value="">Proposta 3</option>
+		</select>
+        </div>
+            
+        <div class="form-group">
+            <button type="button" class="btn btn-primary btn-sm">Simulação</button>
+        </div>
         
-        
-        <button type="button" class="btn btn-primary btn-sm">Simulação</button>
-        
+            </fieldset>
+        </form>
     </body>
 </html>
