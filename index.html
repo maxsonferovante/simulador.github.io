@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Formulário HTML</title>
+    <title>Simulação ACT</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="hhttps://cdnjs.com/libraries/jquery.mask"></script>
+    
 </head>
 <body>
     <form class="formulario" method="post"> 
-        <p> Envie uma mensagem preenchendo o formulário abaixo</p>
+        <p> Simule o ACT</p>
         
         <div class="field">
             <label for="nome">Seu Nome:</label>
             <input type="text" id="nome" name="nome" placeholder="Digite seu nome*" required>
         </div>
         
+    
         <div class="field">
-            <label for="telefone">Seu Telefone:</label>
-            <input type="text" id="telefone" name="telefone" placeholder="Digite seu Telefone">
-        </div>
-
-        <div class="field">
-            <label for="email">Seu E-Mail:</label>
-            <input type="email" id="email" name="email" placeholder="Digite seu E-Mail*" required>
-        </div>        
+            <label for="cpf">Seu cpf:</label>
+            <input type="number" id="cpf" name="email" placeholder="Ex xxx.xxx.xxx-xx" required>
+        </div>  
+        
+        
         <div class="field radiobox">
             <span>Deseja receber nossas novidades?</span>
             <input type="radio" name="novidades" id="sim" value="sim" checked><label for="sim">Sim</label>
