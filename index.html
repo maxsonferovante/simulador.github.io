@@ -5,6 +5,12 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="styles.css">
     
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     
 </head>
@@ -20,13 +26,10 @@
     
         <div class="field">
             <label for="nome">Seu CPF:</label>
-            <input type="text" id=cpf name=cpf class="form-control" required>
-            
-            <script>
-                $( "#cpf" ).keypress(function() {
-                $(this).mask('000.000.000-00');
-                 });
-            </script>
+           <div class="form-group col-md-4">
+                <label>CPF</label>
+                <input type="text" class="form-control" onkeypress="$(this).mask('000.000.000-00');">
+            </div>
             
             
         </div>  
