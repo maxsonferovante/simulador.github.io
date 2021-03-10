@@ -1,27 +1,30 @@
-.form-main{
+.formulario{
     width: 400px;
     padding: 30px;
     border:1px solid #ccc;
 }
-.form-main p{
+.formulario p{
     width: 100%;
     font-size: 1.5em;
 }
-.form-group{
+.field{
     width: 100%;
     margin: 15px 0;
 }
-.form-group label, 
-{
+.field label, 
+.field span{
     padding-left: 10px;
     font-size: 1.1em;
     display: block;
     width: 100%;
 }
-
+.radiobox label{
+    width: auto;
+    display: inline-block;
+}
 input[type=text],
-input[type=number]
-{
+input[type=email],
+textarea{
     width: 100%;
     padding-left: 10px;
     height: 30px;
