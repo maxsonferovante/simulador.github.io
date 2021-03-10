@@ -21,31 +21,21 @@
     <form class="row g-3"> 
         
         <div class="mb-3">
-            <p> Simule o ACT</p>
-        
+            <p> Simule o ACT</p> 
          </div> 
         
         <div class="mb-3">
             <label for="nome" class="form-label">Seu Nome:</label>
-            
-                <div class="col-sm-10">
-                    <input type="text" id="nome" name="nome" class="form-control" placeholder="digite seu nome completo"required>
-                </div>
+            <input type="text" id="nome" name="nome" class="form-control" placeholder="digite seu nome completo"required>
         </div>
         
     
         <div class="mb3">
             <label for="nome" class="form-label">Seu CPF:</label>
-          
-            <div class="col-sm-10">
-                <input type="text" id=cpf class="form-control" placeholder="Ex xxx.xxx.xxx-xx" onkeypress="$(this).mask('000.000.000-00');">
-            </div>
-      
+            <input type="text" id=cpf class="form-control" placeholder="Ex xxx.xxx.xxx-xx" onkeypress="$(this).mask('000.000.000-00');"> 
         </div>  
-        
-        <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-3">Simular</button>
-        </div>
+   
     </form>
 </body>
 </html>
