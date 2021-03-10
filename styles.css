@@ -18,12 +18,7 @@
     display: block;
     width: 100%;
 }
-.box-action{
-    padding-left: 10px;
-    font-size: 1.1em;
-    display: block;
-    width: 100%;
-}
+
 input[type=text],
 input[type=number]
 {
