@@ -28,9 +28,9 @@
 <body>    
     
   
-    <figure class="text-center">
-                       <p>Simulação de ACT 2019-2021</p>
-    </figure>
+    <div class="text-center">
+                       <h1>Simulação de ACT 2019-2021</h>
+                       </div>
 
     <form class="row g-3">
 
@@ -43,20 +43,21 @@
       <div class="col-md-6">
         <label for="inputSalario" >Salário base</label>
         <input type="number" class="form-control" id="inputSalario" placeholder="ex. 9999,99" step = "0.01" min="0" max="10000" required>
-      </div>
-
-      <div class="col-12">
-
+      </div>  
+      
+      <div class="col-md-6">
         <div class="form-check form-check-inline">
-          <input type="radio" class="btn-check" id="btn-check-outlined"  checked>
-          <label class="btn btn-outline-primary" for="btn-check-outlined">Remuneração Atual</label><br>
+            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+            <label class="btn btn-outline-secondary" for="option1">Remuneração Atual</label>
 
         </div>
+        
         <div class="form-check form-check-inline">
-          <input type="radio" class="btn-check" id="btn-check-outlined" >
-          <label class="btn btn-outline-primary" for="btn-check-outlined">Remuneração Alterada pelo ACT</label><br>
+            <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="option2">Remuneração Alterada pela ACT</label>
         </div>
       </div>
+
     </form>
 
      <p></p>       
@@ -74,106 +75,106 @@
               <th scope="col">Prov. Direitos</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody id="tabela">
+            <tr class="row">
               <th scope="row">Salário Base</th> 
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>  
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>  
             </tr>
-            <tr>
+            <tr class="row">
               <th scope="row">ATS / ATS Férias</th>
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>  
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>  
             </tr>
-            <tr>
+            <tr class="row">
               <th scope="row">Gratificação de Atividade Portuária</th>
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>  
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>  
             </tr>
-            <tr>
+            <tr class="row">
               <th scope="row">RISCO/ Compl. De Risco</th>        
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>  
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>  
             </tr>
-            <tr>
+            <tr class="row">
               <th scope="row">Hora Extra 50%/compl.HE 50%</th>    
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>  
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>  
             </tr>
-            <tr>
+            <tr class="row">
               <th scope="row">Hora Extra 50% Noturno</th>     
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>   
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>   
             </tr>
-            <tr>
+            <tr class="row">
               <th scope="row">Hora Extra 100% / compl. HE 100%</th>  
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>     
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>     
             </tr>
-                <tr>
+                <tr class="row">
               <th scope="row">Hora Extra 100% / compl. HE 100%</th> 
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>         
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>         
             </tr>
 
-            <tr>
+            <tr class="row">
               <th scope="row">Ad.Not Avent</th>   
               <td>1</td>  
               <td>1</td>  
               <td>1</td> 
             </tr>
 
-            <tr>
+            <tr class="row">
               <th scope="row">Domingos/Feriados nort.</th>     
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>   
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>   
             </tr>
 
-            <tr>
+            <tr class="row">
               <th scope="row">Intrajornada</th>
               <td>1</td>  
               <td>1</td>  
               <td>1</td> 
             </tr>
 
-            <tr>
+            <tr class="row">
               <th scope="row">Intrajornada Noturna</th>   
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>    
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>    
             </tr>
 
-            <tr>
+            <tr class="row">
               <th scope="row">DSR S/H.Extra</th>
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>  
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>  
             </tr>
 
-            <tr>
+            <tr class="row">
               <th scope="row">DSR ADICIONAL DE RISCO</th>   
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>      
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>      
             </tr>
 
-            <tr>
+            <tr class="row">
               <th scope="row">DSR ADCIONAL NOTURNO</th>     
-              <td>1</td>  
-              <td>1</td>  
-              <td>1</td>      
+              <td class="ref">1</td>  
+              <td class="valor">1</td>  
+              <td class="prov_direitos">1</td>      
             </tr>
 
-            <tr>
+            <tr class="row">
               <th scope="row">compl. Transfer. de local</th>
               <td>1</td>  
               <td>1</td>  
@@ -182,7 +183,7 @@
         
             </tbody>
             <tfoot>
-              <tr>
+              <tr class="row">
                   <th>Total</th>         
                   <td></td>
                   <td></td >

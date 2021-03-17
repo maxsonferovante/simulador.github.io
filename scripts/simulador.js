@@ -8,11 +8,10 @@ $(document).ready(function()
             $btnSimular =$('.btn btn-primary');
                   
 
-        var dateNow = new Date();
-        var current_month = dateNow.getMonth(),
-            current_day = dateNow.getDate(),
-            current_year = dateNow.getFullYear();
-       
+        let tabela = document.querySelector("#tabela");
+        console.log(tabela);
+        let rows = tabela.querySelectorAll(".row");
+        console.log(rows)
         function coletorDeDados (){
             
         }
