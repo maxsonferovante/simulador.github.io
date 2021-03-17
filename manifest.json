@@ -1,0 +1,13 @@
+{
+    "name": "Simulador WPA",
+    "short_name": "Simulador  Sindiporto WPA",
+    "description": "Experiment with WPA!",
+    "start_url": "index.html?utm_source=homescreen",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "images/icon/icon.ico",
+        "sizes": "48x48",
+        "type": "image/ico"
+      }]
+  }
