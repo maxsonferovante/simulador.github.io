@@ -35,42 +35,38 @@
     <form class="row g-3">
 
       <div class="col-md-6">
-        <label for="inputDate" class="form-label">Data de Nascimento</label>
-        <input type="date" class="form-control" id="inputDate">
+        <label for="inputDate" >Data de Nascimento</label>
+        <input type="date" class="form-control" id="inputDate" >
       </div>
 
       
       <div class="col-md-6">
-        <label for="inputSalario" class="form-label">Salário base</label>
-        <input type="text" class="form-control" id="inputSalario">
+        <label for="inputSalario" >Salário base</label>
+        <input type="number" class="form-control" id="inputSalario" placeholder="ex. 9999,99" step = "0.01" min="0" max="10000" required>
       </div>
 
       <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Remuneração Atual
-          </label>
+
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" checked>
+          <label class="btn btn-outline-primary" for="btn-check-outlined">Remuneração Atual</label><br>
+
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-          <label class="form-check-label" for="flexRadioDefault2">
-            Remuneração Alterada pelo ACT
-          </label>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btn-check-outlined">Remuneração Alterada pelo ACT</label><br>
         </div>
-      </div>
-      <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" class="btn btn-primary">Sign in</button>
       </div>
     </form>
 
-            
+     <p></p>       
+     <p></p>
+     <p></p>
         <div class="table-responsive">
-          <table class="table caption-top">
+          <table class="table ">
           
-          <caption>Remuneração Atual</caption>
-          
-          <thead class="table-ligth">
+         
+          <thead class="table-dark">
           
               <th scope="col">Descrição</th>
               <th scope="col">Ref</th>
