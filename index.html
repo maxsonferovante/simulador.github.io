@@ -30,7 +30,7 @@
 
           <div class="col-md-6">
             <label for="inputDate" >Data de Nascimento</label>
-            <input type="date" class="form-control" id="inputDate" >
+            <input type="date" class="form-control" id="inputDate" required>
           </div>
 
           <div class="col-md-6">
@@ -40,8 +40,8 @@
 
           <p></p>       
           <p></p>
-            <button class="btn btn-outline-success"  >Remuneração Atual</button>
-            <button class="btn btn-outline-success"  >Remuneração Alterada</button>
+            <button class="btn btn-outline-success" onclick="atual()" >Remuneração Atual</button>
+            <button class="btn btn-outline-success" onclick="alterada()" >Remuneração Alterada</button>
 
         </form>
       </div>
@@ -66,7 +66,7 @@
           <tbody id="tabela-valores">
             <tr class=valor>
               <th scope=valor>Salário Base</th> 
-              <td class="ref"></td>  
+              <td class="ref" id = "i21"></td>  
               <td class="valor"></td>  
               <td class="prov_direitos"></td>  
             </tr>
@@ -183,9 +183,6 @@
         </div>
 
 
-
-    <script src="scripts/main.js"></script>
-    <script src="scripts/jquery.min.js"></script>
     <script src="scripts/simulador.js"></script>
 </body>
 </html>
