@@ -11,8 +11,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Simula Sindiporto">
     <link rel="icon" sizes="192x192" type="image/ico" href="imagens/icon/icon.ico">
-
-
+    <link rel="manifest" href="/manifest.json">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     
     
@@ -30,18 +30,18 @@
 
           <div class="col-md-6">
             <label for="inputDate" >Data de Nascimento</label>
-            <input type="date" class="form-control" id="inputDate" required>
+            <input type="date" class="form-control" id="inputDate" >
           </div>
 
           <div class="col-md-6">
             <label for="inputSalario" >Salário base</label>
-            <input type="number" class="form-control" id="inputSalario" placeholder="ex. 9999,99" step = "0.01" min="0" max="10000" required>
+            <input type="number" class="form-control" id="inputSalario" placeholder="ex. 9999,99"  step = "0.01" min="0" max="10000" required>
           </div>  
 
           <p></p>       
           <p></p>
-            <button class="btn btn-outline-success" onclick="atual()" >Remuneração Atual</button>
-            <button class="btn btn-outline-success" onclick="alterada()" >Remuneração Alterada</button>
+            <button class="btn btn-outline-success" id="btnAtul"  >Remuneração Atual</button>
+            <button class="btn btn-outline-success" id="btnAlterada">Remuneração Alterada</button>
 
         </form>
       </div>
@@ -53,136 +53,12 @@
      <p></p>
      
         <div class="table-responsive">
-          <table class="table ">
-          
-          <thead class="table-dark"> 
-              <th scope="col">Descrição</th>
-              <th scope="col">Ref</th>
-              <th scope="col">valor</th>
-              <th scope="col">Prov. Direitos</th>
-            </tr>
-          </thead>
-
-          <tbody id="tabela-valores">
-            <tr class=valor>
-              <th scope=valor>Salário Base</th> 
-              <td class="ref" id = "i21"></td>  
-              <td class="valor"></td>  
-              <td class="prov_direitos"></td>  
-            </tr>
-            <tr class=valor>
-              <th scope=valor>ATS / ATS Férias</th>
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td> 
-            </tr>
-            <tr class=valor>
-              <th scope=valor>Gratificação de Atividade Portuária</th>
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td> 
-            </tr>
-            <tr class=valor>
-              <th scope=valor>RISCO/ Compl. De Risco</th>        
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td> 
-            </tr>
-            <tr class=valor>
-              <th scope=valor>Hora Extra 50%/compl.HE 50%</th>    
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td> 
-            </tr>
-            <tr class=valor>
-              <th scope=valor>Hora Extra 50% Noturno</th>     
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td>  
-            </tr>
-            <tr class=valor>
-              <th scope=valor>Hora Extra 100% / compl. HE 100%</th>  
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td>    
-            </tr>
-                <tr class=valor>
-              <th scope=valor>Hora Extra 100% / compl. HE 100%</th> 
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td>        
-            </tr>
-
-            <tr class=valor>
-              <th scope=valor>Ad.Not Avent</th>   
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td>        
-            </tr>
-
-            <tr class=valor>
-              <th scope=valor>Domingos/Feriados nort.</th>     
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td>  
-            </tr>
-
-            <tr class=valor>
-              <th scope=valor>Intrajornada</th>
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td>        
-            </tr>
-
-            <tr class=valor>
-              <th scope=valor>Intrajornada Noturna</th>   
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td>   
-            </tr>
-
-            <tr class=valor>
-              <th scope=valor>DSR S/H.Extra</th>
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td> 
-            </tr>
-
-            <tr class=valor>
-              <th scope=valor>DSR ADICIONAL DE RISCO</th>   
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td>     
-            </tr>
-
-            <tr class=valor>
-              <th scope=valor>DSR ADCIONAL NOTURNO</th>     
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td>     
-            </tr>
-
-            <tr class=valor>
-              <th scope=valor>compl. Transfer. de local</th>
-              <td class="ref"></td>  
-              <td class="valor"></td>   
-              <td class="prov_direitos"></td>        
-            </tr>
-        
-            </tbody>
-            <tfoot id="tabela-somatorio">
-              <tr class=valor>
-                  <th>Total</th>         
-                  <td></td>
-                  <td></td >
-                  <th class="soma">852</th>
-                </tr>
-            </tfoot>
-          </table>
-        
+            <table class="table"></table>
         </div>
 
-
-    <script src="scripts/simulador.js"></script>
+        <script src="scripts/main.js"></script>
+        <script src="scripts/jquery.min.js"></script>
+        <script src="scripts/simulador.js"></script>
+ 
 </body>
 </html>
