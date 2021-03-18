@@ -1,12 +1,12 @@
 var CACHE_NAME = "SimuladorACT-v1";
 var urlsToCache = [
-  'index.html',
+  '/index.html',
   
   'scripts/main.js',
   'scripts/jquery.min.js',
   'scripts/simulador.js',
   
-  'images/icon/icon-.ico'
+  'imagens/icon/icon-.ico'
 ];
 
 self.addEventListener('install', function(event) {

@@ -1,13 +1,13 @@
 {
-    "name": "Simulador ACT",
+    "name": "SimuladorACT",
     "short_name": "SimuladorACT",
     "display": "standalone",
-    "start_url": "/",
+    "start_url": "index.html",
     "icons": [
       {
-        "src": "images/icon.ico",
+        "src": "imagens/icon/icon.ico",
         "sizes": "72x72",
-        "type": "image/ico"
+        "type": "imagens/ico"
       }
     ]
   }

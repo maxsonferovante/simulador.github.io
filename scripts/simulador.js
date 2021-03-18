@@ -2,7 +2,7 @@
 $(document).ready(function()
 {
             var simuladorACT = function(){
-                var ref_atual = [
+                var $ref_atual = [
                     30,
                     4,
                     0,
@@ -21,7 +21,7 @@ $(document).ready(function()
                     0,
                     0
                 ],
-                ref_alterada = [
+                $ref_alterada = [
                     30,
                     4,
                     0,
@@ -64,14 +64,15 @@ $(document).ready(function()
                 $ope = true,
                 
                 $tabela = $(".table"),
-                $inputSalario = document.getElementById("inputSalario").value,
+                $inputSalario = document.getElementById("inputSalario"),
                 $inputDate = document.getElementById("inputDate"),
-                $btnAtul = document.getElementById("btnAtul"),
+                $btnAtul = document.querySelector("button"),
                 $btnAlterada = document.getElementById("btnAlterada");
                 
-                console.log($valor );
-                $inputSalario.value = 1000;
+                console.log($inputSalario.getAttributeNode('value'));
+                
             function construirTabela(){
+                $tabela.empty();
                 $tabela.append(
                     "<thead class='table-dark'>" + "<th scope='col'>Descrição</th>" + "<th scope='col'>Ref</th>" + "<th scope='col'>valor</th>" + "<th scope='col'>Prov. Direitos</th>" +  "</thead>"
                 );  
@@ -82,33 +83,35 @@ $(document).ready(function()
                     $ope = false;
                    $valor[0] = 0;
                    $provDireitos[0] = $inputSalario.value;
-                   console.log($valor,$provDireitos );
+                   
+                   console.log($valor,$provDireitos,$ref_atual );
+                   
                    $valor[1] = 0;
-                   $provDireitos[1] = $inputSalario.value*(ref_atual[1]/100.0);
+                   $provDireitos[1] = $inputSalario.value*($ref_atual[1]/100.0);
 
                    $valor[2] = 0;
                    $provDireitos[2] = 0;
 
                    $valor[3] = ($inputSalario+$provDireitos[1])/180*0.4;
-                   $provDireitos[3] = $valor[3]*ref_atual[3];
+                   $provDireitos[3] = $valor[3]*$ref_atual[3];
                    
                    $valor[4] = ($inputSalario+$provDireitos[1])/180*1.5;
-                   $provDireitos[4] = $valor[4]*ref_atual[4];
+                   $provDireitos[4] = $valor[4]*$ref_atual[4];
 
                    $valor[5] = ($inputSalario+$provDireitos[1])/180*2.0;
-                   $provDireitos[5] = $valor[5]*ref_atual[5];
+                   $provDireitos[5] = $valor[5]*$ref_atual[5];
                    
                    $valor[7] = ($inputSalario+$provDireitos[1])/180*0.5;
                    $provDireitos = $valor[7] * $valor[7];
 
                    $valor[6] = (($inputSalario+$provDireitos[1]+$provDireitos[7]))/180*2.0;
-                   $provDireitos[6] = $valor[6]*ref_atual[6];
+                   $provDireitos[6] = $valor[6]*$ref_atual[6];
 
                    $valor[8] = ($inputSalario+$provDireitos[1])/180*2.0;
-                   $provDireitos[8] = $valor[8]*ref_atual[8];
+                   $provDireitos[8] = $valor[8]*$ref_atual[8];
 
                    $valor[9] = (($inputSalario+$provDireitos[1]+$provDireitos[7])/180)*2.0;
-                   $provDireitos[9] =  $valor[9]*ref_atual[9];
+                   $provDireitos[9] =  $valor[9]*$ref_atual[9];
                    
                    $valor[10] = $valor[8];
                    $provDireitos[10] = $valor[10];
@@ -127,25 +130,26 @@ $(document).ready(function()
                     $provDireitos[9] +
                     $provDireitos[10] +
                     $provDireitos[11] +
-                    $provDireitos[12] ) /((ref_atual[0]-ref_atual[13])*ref_atual[13]);
+                    $provDireitos[12] ) /(($ref_atual[0]-$ref_atual[13])*$ref_atual[13]);
                     
                   $valor[14] =0;
-                  $provDireitos[14] = ref_atual[3]/((ref_atual[0]-ref_atual[14])*ref_atual[14]);
+                  $provDireitos[14] = $ref_atual[3]/(($ref_atual[0]-$ref_atual[14])*$ref_atual[14]);
                   
                   $valor[15] =0;
-                  $provDireitos[15] = ref_atual[8]/((ref_atual[0]-ref_atual[15])*ref_atual[15]);
+                  $provDireitos[15] = $ref_atual[8]/(($ref_atual[0]-$ref_atual[15])*$ref_atual[15]);
                     
                   $valor[16] = 0 ;
                   $provDireitos[16] = 0
                 
                   $valor[17] = 0 ;
                   $provDireitos[17] = $arrSum($provDireitos);
-
+                
+                  console.log($valor);
                   for (i = 0; i < destricao.length-1; i++){
                     $tabela.append(
                         "<tr>"+
                         "<th>"+ destricao[i]+"</th>" +
-                        "<td>"+ ref_atual[i]+"</td>"+
+                        "<td>"+ $ref_atual[i]+"</td>"+
                         "<td>"+ $valor[i]+"</td>"+
                         "<td>"+ $provDireitos[i]+" </td>"
                     );       
@@ -155,41 +159,42 @@ $(document).ready(function()
                 }
                 else{
                     $ope=true;
+                    
                     $valor[0] = 0;
                     $provDireitos[0] = $inputSalario.value;
                     
                     $valor[1] = 0;
-                    $provDireitos[1] = $inputSalario.value*(ref_alterada[1]/100.0);
+                    $provDireitos[1] = $inputSalario.value*($ref_alterada[1]/100.0);
  
                     $valor[2] = 0;
                     $provDireitos[2] = 0;
  
                     $valor[3] = ($inputSalario+$provDireitos[1])/180*0.4;
-                    $provDireitos[3] = $valor[3]*ref_alterada[3];
+                    $provDireitos[3] = $valor[3]*$ref_alterada[3];
                     
                     $valor[4] = ($inputSalario+$provDireitos[1])/180*1.5;
-                    $provDireitos[4] = $valor[4]*ref_alterada[4];
+                    $provDireitos[4] = $valor[4]*$ref_alterada[4];
  
                     $valor[8] = ($inputSalario+$provDireitos[1])/180*0.5;
-                    $provDireitos[8] = $valor[8]*ref_alterada[8];
+                    $provDireitos[8] = $valor[8]*$ref_alterada[8];
  
                     $valor[5] = ($inputSalario+$provDireitos[1]+$provDireitos[8])/180*2.0;
-                    $provDireitos[5] = $valor[5]*ref_alterada[5];
+                    $provDireitos[5] = $valor[5]*$ref_alterada[5];
                     
                     $valor[6] = (($inputSalario+$provDireitos[1]))/180*2.0;
-                    $provDireitos[6] = $valor[6]*ref_alterada[6];
+                    $provDireitos[6] = $valor[6]*$ref_alterada[6];
  
                     $valor[7] = ($inputSalario+$provDireitos[1]+$provDireitos[8])/180*2.0;
                     $provDireitos = $valor[7] * $valor[7];
  
                     $valor[9] = (($inputSalario+$provDireitos[1])/180)*2.0;
-                    $provDireitos[9] =  $valor[9]*ref_alterada[9];
+                    $provDireitos[9] =  $valor[9]*$ref_alterada[9];
                     
                     $valor[10] = $valor[8];
-                    $provDireitos[10] = $valor[10] * ref_alterada[10];
+                    $provDireitos[10] = $valor[10] * $ref_alterada[10];
  
                     $valor[11] = $valor[9];
-                    $provDireitos[11] = $valor[11] * ref_alterada[11]; 
+                    $provDireitos[11] = $valor[11] * $ref_alterada[11]; 
  
                     $valor[12] = (($inputSalario+$provDireitos[1]+$provDireitos[8])/180)*2.0;
                     $provDireitos[12] = $valor[12];
@@ -202,13 +207,13 @@ $(document).ready(function()
                      $provDireitos[9] +
                      $provDireitos[10] +
                      $provDireitos[11] +
-                     $provDireitos[12] ) /((ref_alterada[0]-ref_alterada[13])*ref_alterada[13]);
+                     $provDireitos[12] ) /(($ref_alterada[0]-$ref_alterada[13])*$ref_alterada[13]);
                      
                    $valor[14] =0;
-                   $provDireitos[14] = ref_alterada[3]/((ref_alterada[0]-ref_alterada[14])*ref_alterada[14]);
+                   $provDireitos[14] = $ref_alterada[3]/(($ref_alterada[0]-$ref_alterada[14])*$ref_alterada[14]);
                    
                    $valor[15] =0;
-                   $provDireitos[15] = ref_alterada[8]/((ref_alterada[0]-ref_alterada[15])*ref_alterada[15]);
+                   $provDireitos[15] = $ref_alterada[8]/(($ref_alterada[0]-$ref_alterada[15])*$ref_alterada[15]);
                  
                    $valor[16] = 0 ;
                    $provDireitos[16] = 0
@@ -220,7 +225,7 @@ $(document).ready(function()
                     $tabela.append(
                         "<tr>"+
                         "<th>"+ destricao[i]+"</th>" +
-                        "<td>"+ ref_alterada[i]+"</td>"+
+                        "<td>"+ $ref_alterada[i]+"</td>"+
                         "<td>"+ $valor[i]+"</td>"+
                         "<td>"+ $provDireitos[i]+" </td>"
                         
@@ -246,20 +251,18 @@ $(document).ready(function()
             }
             function bindEvents(){
                 
+               
                 construirTabela();
-                $btnAtul.addEventListener("click",function(){
+                $btnAtul.onclick = function(){
+                    console.log("passei aqui");
                     $tabela.empty();
+                    $ope = false;
                     construirTabela();
-                  
-                });
-                $btnAlterada.addEventListener("click",function(){
-                    $tabela.empty();
-                    construirTabela();
-
-                });
-
-            }
-            bindEvents();
+            
+                };
+        }
+            
+        bindEvents();
 
     };        
     simuladorACT();
