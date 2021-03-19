@@ -345,6 +345,12 @@ $(document).ready(function()
                             );
                         
                 }
+
+                if($ope){
+                    $ope = false;
+                }else{
+                    $ope = true;
+                }
             }
             
              
@@ -354,11 +360,7 @@ $(document).ready(function()
                     $tabela.empty();
                     if($inputSalario.value !=""){                    
                         construirTabela();
-                        if($ope){
-                            $ope = false;
-                        }else{
-                            $ope = true;
-                        }
+                       
                     }
                     
             
