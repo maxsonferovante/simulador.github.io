@@ -352,15 +352,13 @@ $(document).ready(function()
                 $btnAtul.onclick = function(){
                     console.log("passei aqui");
                     $tabela.empty();
-                    if($inputSalario.value !=""){
-                       
+                    if($inputSalario.value !=""){                    
+                        construirTabela();
                         if($ope){
                             $ope = false;
                         }else{
                             $ope = true;
                         }
-                        
-                        construirTabela();
                     }
                     
             
