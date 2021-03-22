@@ -117,7 +117,6 @@ $(document).ready(function()
           
                 $btnAtul = document.querySelector("button");
                 $inputSalario= document.querySelector("input");
-            
                 
             function construirTabela(){
          
@@ -356,7 +355,7 @@ $(document).ready(function()
             }
             
              
-            function bindEvents(){
+        function bindEvents(){
                 $btnAtul.onclick = function(){
                     console.log("passei aqui");
                     $tabela.empty();
