@@ -1,4 +1,5 @@
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<!DOCTYPE html>
+<html lang="pt-br"><head>
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-110066474-1"></script>
     <script>
@@ -7,42 +8,102 @@
       gtag('js', new Date());
     
       gtag('config', 'UA-110066474-1');
+
+
+   
+
+    var dadosArquivados = JSON.parse(sessionStorage.getItem('chave'));
+        console.log(dadosArquivados.);
     </script>
+
     <title>SIMULADOR DE PLANOS DE SAÚDE UNIMMED</title>
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta charset="utf-8"/>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Simula Sindiporto">
+    <link rel="icon" sizes="192x192" type="image/ico" href="imagens/icon/icon.ico">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
    </head>
-    
     <body>
-    
-    <div class="col">
-        <hr>
-        <h1>SIMULADOR DE PLANOS DE SAÚDE</h1>
-        <hr>
-        <form id="form1" action="https://www.planosdesaudetodosaqui.com.br/simulador/url.html" method="POST" name="form1" style="text-align: left" target="_blank">
-            <div class="row">
-                <div class="column">
-                    <p><strong>Número de pessoas</strong></p>
-                    <p>00 a 18 anos: <input id="a0018" min="0" name="a0018" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 30px; font-weight: bold; text-align: right; border-radius: 5px; border-color: #F2F2F2; background-color: #F2F2F2" type="number" value="0"> </p>
-                    <p>19 a 23 anos: <input id="a5477" min="0" name="a1923" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 30px; font-weight: bold; text-align: right; border-radius: 5px; border-color: #F2F2F2; background-color: #F2F2F2" type="number" value="0"> </p>
-                    <p>24 a 28 anos: <input id="a5478" min="0" name="a2428" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 30px; font-weight: bold; text-align: right; border-radius: 5px; border-color: #F2F2F2; background-color: #F2F2F2" type="number" value="0"> </p>
-                    <p>29 a 33 anos: <input id="a5479" min="0" name="a2933" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 30px; font-weight: bold; text-align: right; border-radius: 5px; border-color: #F2F2F2; background-color: #F2F2F2" type="number" value="0"> </p>
-                    <p>34 a 38 anos: <input id="a5480" min="0" name="a3438" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 30px; font-weight: bold; text-align: right; border-radius: 5px; border-color: #F2F2F2; background-color: #F2F2F2" type="number" value="0"> </p>
-                    <p>39 a 43 anos: <input id="a5481" min="0" name="a3943" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 30px; font-weight: bold; text-align: right; border-radius: 5px; border-color: #F2F2F2; background-color: #F2F2F2" type="number" value="0"> </p>
-                    <p>44 a 48 anos: <input id="a5482" min="0" name="a4448" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 30px; font-weight: bold; text-align: right; border-radius: 5px; border-color: #F2F2F2; background-color: #F2F2F2" type="number" value="0"> </p>
-                    <p>49 a 53 anos: <input id="a5483" min="0" name="a4953" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 30px; font-weight: bold; text-align: right; border-radius: 5px; border-color: #F2F2F2; background-color: #F2F2F2" type="number" value="0"> </p>
-                    <p>54 a 58 anos: <input id="a5484" min="0" name="a5458" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 30px; font-weight: bold; text-align: right; border-radius: 5px; border-color: #F2F2F2; background-color: #F2F2F2" type="number" value="0"> </p>
-                    <p>+ de 59 anos: <input id="a5485" min="0" name="a59m" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 30px; font-weight: bold; text-align: right; border-radius: 5px; border-color: #F2F2F2; background-color: #F2F2F2" type="number" value="0"> </p>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+               
+            <div class="col-md-auto">
+              <div class="text-center">
+                  <img src="imagens/icon/logo.png" class="img-fluid" alt="...">
                 </div>
-                <div class="column">
-                    <p><strong>Calcule seu plano de saúde</strong></p>
-                    <p><input id="button" class="button1" name="empresarial1" style="width: 120px; height: 30px;" type="submit" value="EMPRESARIAL"></p>
-                </div>
+              <h2>Simulação do Plano de Saúde UNIMED</h2>
             </div>
-        </form>
-        <br></div>
+      </div>
+      <div class="row">
+          <div classe="col">
+              <p><strong>Número de beneciários</strong></p>
+          
+              <p>00 a 18 anos: <input id="int1" min="0" name="a0018" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 40px; font-weight: bold; text-align: center; border-radius: 5px;"  type="number" value="0"> </p>
+              <p>19 a 23 anos: <input id="int2" min="0" name="a1923" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 40px; font-weight: bold; text-align: center; border-radius: 5px;"  type="number" value="0"> </p>
+              <p>24 a 28 anos: <input id="int3" min="0" name="a2428" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 40px; font-weight: bold; text-align: center; border-radius: 5px;"  type="number" value="0"> </p>
+              <p>29 a 33 anos: <input id="int4" min="0" name="a2933" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 40px; font-weight: bold; text-align: center; border-radius: 5px;"  type="number" value="0"> </p>
+              <p>34 a 38 anos: <input id="int5" min="0" name="a3438" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 40px; font-weight: bold; text-align: center; border-radius: 5px;"  type="number" value="0"> </p>
+              <p>39 a 43 anos: <input id="int5" min="0" name="a3943" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 40px; font-weight: bold; text-align: center; border-radius: 5px;"  type="number" value="0"> </p>
+              <p>44 a 48 anos: <input id="int6" min="0" name="a4448" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 40px; font-weight: bold; text-align: center; border-radius: 5px;"  type="number" value="0"> </p>
+              <p>49 a 53 anos: <input id="int7" min="0" name="a4953" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 40px; font-weight: bold; text-align: center; border-radius: 5px;"  type="number" value="0"> </p>
+              <p>54 a 58 anos: <input id="int8" min="0" name="a5458" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 40px; font-weight: bold; text-align: center; border-radius: 5px;"  type="number" value="0"> </p>
+              <p>+ de 59 anos: <input id="int9" min="0" name="a59m" onclick="this.value=='0'?this.value='':null" required="0" size="2" style="width: 40px; font-weight: bold; text-align: center; border-radius:  5px;"  type="number" value="0"> </p>
+              
+          </div>
+          <div class="col-md-auto">
+               <select class="form-select" aria-label="Seleção do tipo de acomodação">
+                  <option selected>Abra para selecionar acomodação</option>
+                  <option value="1">Enfermaria</option>
+                  <option value="2">Apartamento</option>
+              </select> 
+            
+          </div>
+          <div class="col col-lg-2">
+              <div>
+                  <label>Possiu Apartamento Adicional ?</label>
+                  <div class="form-check" >
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Sim
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Não
+                      </label>
+                  </div>
+              </div>    
+          </div>
+      </div>
+      <div class="row">
+          <div class="col">
+              <p></p>
+              <p></p>
+              <p><strong>Calcule seu plano de saúde</strong></p>
+              <p>
+                  <input id="button" class="button1" name="empresarial1"  type="submit" value="EMPRESARIAL">
+              </p>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col">
+            <a href="index.html" class="card-link">Volte a simulação de remuneração</a>
+        </div>
+      </div>
+    </div>
+    </div>
+        
     
+    </body>
     
-    
-    
-    </body></html>
+    </html>

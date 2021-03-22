@@ -117,7 +117,6 @@ $(document).ready(function()
           
                 $btnAtul = document.querySelector("button");
                 $inputSalario= document.querySelector("input");
-     
             
                 
             function construirTabela(){
@@ -223,7 +222,8 @@ $(document).ready(function()
                         '</tfoot>'
                             );
                         
-                
+                        sessionStorage.setItem("salario",
+                        JSON.stringify(Math.round10($provDireitos[17],-2)));
                 }    
                 else{
               
@@ -341,6 +341,9 @@ $(document).ready(function()
                             '</tr>'+
                         '</tfoot>'
                             );
+                            
+                        sessionStorage.setItem("salario",
+                        JSON.stringify(Math.round10($provDireitos[17],-2)));
                         
                 }
 
@@ -349,6 +352,7 @@ $(document).ready(function()
                 }else{
                     $ope = true;
                 }
+
             }
             
              
@@ -356,11 +360,13 @@ $(document).ready(function()
                 $btnAtul.onclick = function(){
                     console.log("passei aqui");
                     $tabela.empty();
-           
+    
 
                     if($inputSalario.value !=""){                    
                         construirTabela();
-                       
+                                 
+                        sessionStorage.setItem("salario",
+                        JSON.stringify(Math.round10($provDireitos[17],-2)));
                     }
                     
             
