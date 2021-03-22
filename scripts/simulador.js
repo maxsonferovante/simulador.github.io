@@ -52,10 +52,6 @@ $(document).ready(function()
                 
                 })();
 
-
-
-
-
                 var $ref_atual = [
                     30,
                     4,
@@ -121,14 +117,15 @@ $(document).ready(function()
           
                 $btnAtul = document.querySelector("button");
                 $inputSalario= document.querySelector("input");
-                
+     
             
                 
             function construirTabela(){
-                
+         
                 if($ope){
-                    $tabela.append("<caption>Remuneração Atual</caption>"+
-                    "<thead class='table-dark'>" + "<th scope='col'>Descrição</th>" + "<th scope='col'>Ref</th>" + "<th scope='col'>valor</th>" + "<th scope='col'>Prov. Direitos</th>" +  "</thead>"
+               
+                    $tabela.append(
+                    "<thead >" + "<th scope='col'>Remuneração Atual</th>" + "<th scope='col'>Ref</th>" + "<th scope='col'>valor</th>" + "<th scope='col'>Prov. Direitos</th>" +  "</thead>"
                 );  
                 $tabela.append(
                     "<tbody class='tabela-valores'>"
@@ -229,8 +226,9 @@ $(document).ready(function()
                 
                 }    
                 else{
-                    $tabela.append("<caption>Remuneração Alterada pelo ACT 21/23</caption>"+
-                    "<thead class='table-dark'>" + "<th scope='col'>Descrição</th>" + "<th scope='col'>Ref</th>" + "<th scope='col'>valor</th>" + "<th scope='col'>Prov. Direitos</th>" +  "</thead>"
+              
+                    $tabela.append(
+                    "<thead >" + "<th scope='col'>Remuneração Alterada pela ACT - CDP</th>" + "<th scope='col'>Ref</th>" + "<th scope='col'>valor</th>" + "<th scope='col'>Prov. Direitos</th>" +  "</thead>"
                 );  
                 $tabela.append(
                     "<tbody class='tabela-valores'>"
@@ -337,9 +335,9 @@ $(document).ready(function()
                     }
                     $tabela.append(
                         
-                        '</tbody>'+ '<tfoot >'+ '<tr >'+  '<th>Total (com 6% de aumento dado pela cdp)</th>'+  '<td></td>'+
+                        '</tbody>'+ '<tfoot >'+ '<tr >'+  '<th>Total </th>'+  '<td></td>'+
                             '<td></td >'+
-                            '<th >'+Math.round10($provDireitos[17]*1.06,-2)+'</th>'+
+                            '<th >'+Math.round10($provDireitos[17],-2)+'</th>'+
                             '</tr>'+
                         '</tfoot>'
                             );
@@ -358,6 +356,8 @@ $(document).ready(function()
                 $btnAtul.onclick = function(){
                     console.log("passei aqui");
                     $tabela.empty();
+           
+
                     if($inputSalario.value !=""){                    
                         construirTabela();
                        
