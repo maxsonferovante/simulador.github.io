@@ -117,240 +117,259 @@ $(document).ready(function()
           
                 $btnAtul = document.querySelector("button");
                 $inputSalario= document.querySelector("input");
+
+                $inputAts = document.querySelector("#inputAts");             
                 
-            function construirTabela(){
-         
-                if($ope){
-               
-                    $tabela.append(
-                    "<thead >" + "<th scope='col'>Remuneração Atual</th>" + "<th scope='col'>Ref</th>" + "<th scope='col'>valor</th>" + "<th scope='col'>Prov. Direitos</th>" +  "</thead>"
-                );  
-                $tabela.append(
-                    "<tbody class='tabela-valores'>"
-                );
-       
-                   $valor =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-                   $provDireitos =   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-                   console.log("ATUAL");
-                   $valor[0] = 0;
-                   $provDireitos[0] = parseFloat($inputSalario.value);
-                   
-            
-                   $valor[1] = 0;
-                   $provDireitos[1] = parseFloat($inputSalario.value*($ref_atual[1]/100.0));
-
-                   $valor[2] = 0;
-                   $provDireitos[2] = 0;
-                   
-                   
-                   $valor[3] = ((parseFloat($inputSalario.value) + $provDireitos[1]) / 180)*0.4;
-                   $provDireitos[3] = $valor[3]*$ref_atual[3];
-
-                   $valor[4] = ((parseFloat($inputSalario.value)+$provDireitos[1])/180)*1.5;
-                   $provDireitos[4] = $valor[4]*$ref_atual[4];
-
-                   
-                   $valor[8] = (parseFloat($inputSalario.value)+$provDireitos[1])/180*0.5;
-                   $provDireitos[8] = $valor[8]*$ref_atual[8];
-
-                   $valor[5] = ((parseFloat($inputSalario.value)+$provDireitos[1] +$provDireitos[8])/180.0)*1.5;
-                   $provDireitos[5] = $valor[5]*$ref_atual[5];
-                   
-
-                   $valor[6] = ((parseFloat($inputSalario.value)+$provDireitos[1]))/180*2.0;
-                   $provDireitos[6] = $valor[6]*$ref_atual[6];
-
-
-                   $valor[7] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180.0)*2.0;
-                   $provDireitos[7] = $valor[7] * $ref_atual[7];
-
-          
-                   $valor[9] = ((parseFloat($inputSalario.value)+$provDireitos[1])/180)*2.0;
-                   $provDireitos[9] =  $valor[9]*$ref_atual[9];
-                   
-                   $valor[10] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180)*2.0;;
-                   $provDireitos[10] = $valor[10] *$ref_atual[10];
-
-                   $valor[11] = $valor[9];
-                   $provDireitos[11] = $valor[11]; 
-
-                   $valor[12] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180)*2.0;
-                   $provDireitos[12] = $valor[12];
-
-                   var x = $provDireitos[4] +  $provDireitos[5] +$provDireitos[6] +$provDireitos[7];
-                   x = x +$provDireitos[ 9] +$provDireitos[10] +$provDireitos[11] +$provDireitos[12]; 
-
-                   $valor[13] = 0; 
-                   $provDireitos[13]  = x/($ref_atual[0]-$ref_atual[13])*$ref_atual[13];
+             
+                var $selectAddRisco = document.querySelector("#selectAddRisco");
                 
-                  $valor[14] =0;
-                  $provDireitos[14] = ($provDireitos[3]/($ref_atual[0]-$ref_atual[13]))*$ref_atual[13];
-                  
-                  $valor[15] =0;
-                  $provDireitos[15] = ($provDireitos[8]/($ref_atual[0]-$ref_atual[13]))*$ref_atual[13];
-                    
-                  $valor[16] = 0 ;
-                  $provDireitos[16] = 0
-                  
-                  
-                  $valor[17] = 0 ;
-                  
-                  var temp = 0;
-                  for (i=0;i<$provDireitos.length-1;i++){
-                     temp = temp + $provDireitos[i];
-                  }
+                var $selectRemunera = document.querySelector("#selectRemunera");
 
-                  $provDireitos[17] = temp;
-                 
-                  
-                  for (i = 0; i < destricao.length; i++){
-                    $tabela.append(
-                        "<tr>"+
-                        "<th>"+ destricao[i]+"</th>" +
-                        "<td>"+ Math.round10($ref_atual[i],-2)+"</td>"+
-                        "<td>"+ Math.round10($valor[i],-2)+"</td>"+
-                        "<td>"+ Math.round10($provDireitos[i],-2)+" </td>"
-                    );       
-                    }
-                    $tabela.append(
-                        
-                        '</tbody>'+ '<tfoot >'+ '<tr >'+  '<th>Total</th>'+  '<td></td>'+
-                            '<td></td >'+
-                            '<th >'+Math.round10($provDireitos[17],-2)+'</th>'+
-                            '</tr>'+
-                        '</tfoot>'
-                            );
-                        
-                        sessionStorage.setItem("salario",
-                        JSON.stringify(Math.round10($provDireitos[17],-2)));
+            function comOuSemRisco(){
+                switch ($selectAddRisco.value){
+                    case "1":
+                        console.log("COM RISCO " +$selectAddRisco.value);
+                        $ref_atual[3] = 165;
+                        $ref_alterada[3] = 165;
+                        break;
+                    case "2":
+                        console.log("SEM RISCO "+$selectAddRisco.value);
+                        $ref_atual[3] = 0;
+                        $ref_alterada[3] = 0;
+                        break
+                    default:
+                        alert("Selecione o Adicional de Risco");
                 }    
-                else{
-              
-                    $tabela.append(
-                    "<thead >" + "<th scope='col'>Remuneração Alterada pela ACT - CDP</th>" + "<th scope='col'>Ref</th>" + "<th scope='col'>valor</th>" + "<th scope='col'>Prov. Direitos</th>" +  "</thead>"
-                );  
-                $tabela.append(
-                    "<tbody class='tabela-valores'>"
-                );
-       
-                   $valor =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-                   $provDireitos =   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-                   
-                   console.log("ALTERADA");
-                   $valor[0] = 0;
-                   $provDireitos[0] = parseFloat($inputSalario.value);
-                   
-                  
-                   
-                   $valor[1] = 0;
-                   $provDireitos[1] = parseFloat($inputSalario.value*($ref_alterada[1]/100.0));
-                   console.log($provDireitos);
-
-                   $valor[2] = 0;
-                   $provDireitos[2] = 0;
-                   
-                   
-                   $valor[3] = ((parseFloat($inputSalario.value) + $provDireitos[1]) / 180)*0.4;
-                   $provDireitos[3] = $valor[3]*$ref_alterada[3];
-                   console.log($provDireitos);
-
-                   $valor[4] = ((parseFloat($inputSalario.value)+$provDireitos[1])/180)*1.5;
-                   $provDireitos[4] = $valor[4]*$ref_alterada[4];
-
-                   
-                   $valor[8] = (parseFloat($inputSalario.value)+$provDireitos[1])/180*0.5;
-                   $provDireitos[8] = $valor[8]*$ref_alterada[8];
-
-                   $valor[5] = ((parseFloat($inputSalario.value)+$provDireitos[1] +$provDireitos[8])/180.0)*1.5;
-                   $provDireitos[5] = $valor[5]*$ref_alterada[5];
-                   
-
-                   $valor[6] = ((parseFloat($inputSalario.value)+$provDireitos[1]))/180*2.0;
-                   $provDireitos[6] = $valor[6]*$ref_alterada[6];
-
-
-                   $valor[7] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180.0)*2.0;
-                   $provDireitos[7] = $valor[7] * $ref_alterada[7];
-
-                   
-                   console.log($provDireitos);
-
-                   
-                   $valor[9] = ((parseFloat($inputSalario.value)+$provDireitos[1])/180)*2.0;
-                   $provDireitos[9] =  $valor[9]*$ref_alterada[9];
-                   
-                   $valor[10] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180)*2.0;;
-                   $provDireitos[10] = $valor[10] *$ref_alterada[10];
-
-                   $valor[11] = $valor[9];
-                   $provDireitos[11] = $valor[11] *$ref_alterada[11]; 
-
-                   $valor[12] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180)*2.0;
-                   $provDireitos[12] = $valor[12] * $ref_alterada[12];
-
-                   var x = $provDireitos[4] +  $provDireitos[5] +$provDireitos[6] +$provDireitos[7];
-                   x = x +$provDireitos[ 9] +$provDireitos[10] +$provDireitos[11] +$provDireitos[12]; 
-
-                   $valor[13] = 0; 
-                   $provDireitos[13]  = x/($ref_alterada[0]-$ref_alterada[13])*$ref_alterada[13];
+            }
+            function construirTabela(){
                 
-                  $valor[14] =0;
-                  $provDireitos[14] = ($provDireitos[3]/($ref_alterada[0]-$ref_alterada[13]))*$ref_alterada[13];
-                  
-                  $valor[15] =0;
-                  $provDireitos[15] = ($provDireitos[8]/($ref_alterada[0]-$ref_alterada[13]))*$ref_alterada[13];
+                comOuSemRisco();
+                switch($selectRemunera.value){
+                    case "1":
+               
+                        $tabela.append(
+                        "<thead >" + "<th scope='col'>Descrição</th>" + "<th scope='col'>Ref</th>" + "<th scope='col'>valor</th>" + "<th scope='col'>Prov. Direitos</th>" +  "</thead>"
+                    );  
+                        $tabela.append(
+                            "<tbody class='tabela-valores'>"
+                        );
+            
+                        $valor =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                        $provDireitos =   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                        console.log("ATUAL");
+                        $ref_atual[1] = parseFloat($inputAts.value);
+                        console.log($ref_atual);
+                        
+                        $valor[0] = 0;
+                        $provDireitos[0] = parseFloat($inputSalario.value);
+                        
                     
-                  $valor[16] = 0 ;
-                  $provDireitos[16] = 0
-                  
-                  
-                  $valor[17] = 0 ;
-                  
-                  var temp = 0;
-                  for (i=0;i<$provDireitos.length-2;i++){
-                     temp = temp + $provDireitos[i];
-                  }
+                        $valor[1] = 0;
+                        $provDireitos[1] = parseFloat($inputSalario.value*($ref_atual[1]/100.0));
 
-                  $provDireitos[17] = temp;
-                 
-                  
-                   var temp = 0;
-                   for (i=0;i<$provDireitos.length-1;i++){
-                      temp = temp + $provDireitos[i];
-                   }
-
-                   $provDireitos[17] = temp;
-                   console.log($provDireitos);
-                   
-                  for (i = 0; i < destricao.length; i++){
-
-                    $tabela.append(
-                        "<tr>"+
-                        "<th>"+ destricao[i]+"</th>" +
-                        "<td>"+ Math.round10($ref_alterada[i],-2)+"</td>"+
-                        "<td>"+ Math.round10($valor[i],-2)+"</td>"+
-                        "<td>"+ Math.round10($provDireitos[i],-2)+" </td>"
-                    );       
-                    }
-                    $tabela.append(
+                        $valor[2] = 0;
+                        $provDireitos[2] = 0;
                         
-                        '</tbody>'+ '<tfoot >'+ '<tr >'+  '<th>Total </th>'+  '<td></td>'+
-                            '<td></td >'+
-                            '<th >'+Math.round10($provDireitos[17],-2)+'</th>'+
-                            '</tr>'+
-                        '</tfoot>'
-                            );
+                        
+                        $valor[3] = ((parseFloat($inputSalario.value) + $provDireitos[1]) / 180)*0.4;
+                        $provDireitos[3] = $valor[3]*$ref_atual[3];
+
+                        $valor[4] = ((parseFloat($inputSalario.value)+$provDireitos[1])/180)*1.5;
+                        $provDireitos[4] = $valor[4]*$ref_atual[4];
+
+                        
+                        $valor[8] = (parseFloat($inputSalario.value)+$provDireitos[1])/180*0.5;
+                        $provDireitos[8] = $valor[8]*$ref_atual[8];
+
+                        $valor[5] = ((parseFloat($inputSalario.value)+$provDireitos[1] +$provDireitos[8])/180.0)*1.5;
+                        $provDireitos[5] = $valor[5]*$ref_atual[5];
+                        
+
+                        $valor[6] = ((parseFloat($inputSalario.value)+$provDireitos[1]))/180*2.0;
+                        $provDireitos[6] = $valor[6]*$ref_atual[6];
+
+
+                        $valor[7] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180.0)*2.0;
+                        $provDireitos[7] = $valor[7] * $ref_atual[7];
+
+                
+                        $valor[9] = ((parseFloat($inputSalario.value)+$provDireitos[1])/180)*2.0;
+                        $provDireitos[9] =  $valor[9]*$ref_atual[9];
+                        
+                        $valor[10] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180)*2.0;;
+                        $provDireitos[10] = $valor[10] *$ref_atual[10];
+
+                        $valor[11] = ((parseFloat($inputSalario.value)+$provDireitos[1])/180)*2.0;
+                        $provDireitos[11] = $valor[11] *$ref_atual[11]; 
+
+                        $valor[12] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180)*2.0;
+                        $provDireitos[12] = $valor[12] * $ref_atual[12];
+
+                        var x = $provDireitos[4] +  $provDireitos[5] +$provDireitos[6] +$provDireitos[7];
+                        x = x +$provDireitos[ 9] +$provDireitos[10] +$provDireitos[11] +$provDireitos[12]; 
+
+                        $valor[13] = 0; 
+                        $provDireitos[13]  = x/($ref_atual[0]-$ref_atual[13])*$ref_atual[13];
+                        
+                        $valor[14] =0;
+                        $provDireitos[14] = ($provDireitos[3]/($ref_atual[0]-$ref_atual[13]))*$ref_atual[13];
+                        
+                        $valor[15] =0;
+                        $provDireitos[15] = ($provDireitos[8]/($ref_atual[0]-$ref_atual[13]))*$ref_atual[13];
                             
-                        sessionStorage.setItem("salario",
-                        JSON.stringify(Math.round10($provDireitos[17],-2)));
+                        $valor[16] = 0 ;
+                        $provDireitos[16] = 0
+                        
+                        
+                        $valor[17] = 0 ;
+                        
+                        var temp = 0;
+                        for (i=0;i<$provDireitos.length-1;i++){
+                            temp = temp + $provDireitos[i];
+                        }
+
+                        $provDireitos[17] = temp;
+                        
+                        
+                        for (i = 0; i < destricao.length; i++){
+                            $tabela.append(
+                                "<tr>"+
+                                "<th>"+ destricao[i]+"</th>" +
+                                "<td>"+ Math.round10($ref_atual[i],-2)+"</td>"+
+                                "<td>"+ Math.round10($valor[i],-2)+"</td>"+
+                                "<td>"+ Math.round10($provDireitos[i],-2)+" </td>"
+                            );       
+                            }
+                            $tabela.append(
+                                
+                                '</tbody>'+ '<tfoot >'+ '<tr >'+  '<th>Total</th>'+  '<td></td>'+
+                                    '<td></td >'+
+                                    '<th >'+Math.round10($provDireitos[17],-2)+'</th>'+
+                                    '</tr>'+
+                                '</tfoot>'
+                                    );
+                    break;            
+                    case "2":     
+                            console.log($ref_alterada);
+                            $tabela.append(
+                            "<thead >" + "<th scope='col'>Descrição</th>" + "<th scope='col'>Ref</th>" + "<th scope='col'>valor</th>" + "<th scope='col'>Prov. Direitos</th>" +  "</thead>"
+                        );  
+                        $tabela.append(
+                            "<tbody class='tabela-valores'>"
+                        );
+            
+                        $valor =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                        $provDireitos =   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                        
+                        console.log("ALTERADA");
+                        $ref_alterada[1] = parseFloat($inputAts.value);
+                        console.log($ref_alterada);
+
+                        $valor[0] = 0;
+                        $provDireitos[0] = parseFloat($inputSalario.value);
+                        
+                        
+                        
+                        $valor[1] = 0;
+                        $provDireitos[1] = parseFloat($inputSalario.value*($ref_alterada[1]/100.0));
+
+                        $valor[2] = 0;
+                        $provDireitos[2] = 0;
+                        
+                        
+                        $valor[3] = ((parseFloat($inputSalario.value) + $provDireitos[1]) / 180)*0.4;
+                        $provDireitos[3] = $valor[3]*$ref_alterada[3];
+                        
+
+                        $valor[4] = ((parseFloat($inputSalario.value)+$provDireitos[1])/180)*1.5;
+                        $provDireitos[4] = $valor[4]*$ref_alterada[4];
+
+                        
+                        $valor[8] = (parseFloat($inputSalario.value)+$provDireitos[1])/180*0.5;
+                        $provDireitos[8] = $valor[8]*$ref_alterada[8];
+
+                        $valor[5] = ((parseFloat($inputSalario.value)+$provDireitos[1] +$provDireitos[8])/180.0)*1.5;
+                        $provDireitos[5] = $valor[5]*$ref_alterada[5];
+                        
+
+                        $valor[6] = ((parseFloat($inputSalario.value)+$provDireitos[1]))/180*2.0;
+                        $provDireitos[6] = $valor[6]*$ref_alterada[6];
+
+
+                        $valor[7] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180.0)*2.0;
+                        $provDireitos[7] = $valor[7] * $ref_alterada[7];
+                        
+                        $valor[9] = ((parseFloat($inputSalario.value)+$provDireitos[1])/180)*2.0;
+                        $provDireitos[9] =  $valor[9]*$ref_alterada[9];
+                        
+                        $valor[10] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180)*2.0;;
+                        $provDireitos[10] = $valor[10] *$ref_alterada[10];
+
+                        $valor[11] = $valor[9];
+                        $provDireitos[11] = $valor[11] *$ref_alterada[11]; 
+
+                        $valor[12] = ((parseFloat($inputSalario.value)+$provDireitos[1]+$provDireitos[8])/180)*2.0;
+                        $provDireitos[12] = $valor[12] * $ref_alterada[12];
+
+                        var x = $provDireitos[4] +  $provDireitos[5] +$provDireitos[6] +$provDireitos[7];
+                        x = x +$provDireitos[ 9] +$provDireitos[10] +$provDireitos[11] +$provDireitos[12]; 
+
+                        $valor[13] = 0; 
+                        $provDireitos[13]  = x/($ref_alterada[0]-$ref_alterada[13])*$ref_alterada[13];
+                        
+                        $valor[14] =0;
+                        $provDireitos[14] = ($provDireitos[3]/($ref_alterada[0]-$ref_alterada[13]))*$ref_alterada[13];
+                        
+                        $valor[15] =0;
+                        $provDireitos[15] = ($provDireitos[8]/($ref_alterada[0]-$ref_alterada[13]))*$ref_alterada[13];
+                            
+                        $valor[16] = 0 ;
+                        $provDireitos[16] = 0
+                        
+                        
+                        $valor[17] = 0 ;
+                        
+                        var temp = 0;
+                        for (i=0;i<$provDireitos.length-2;i++){
+                            temp = temp + $provDireitos[i];
+                        }
+
+                        $provDireitos[17] = temp;
+                        
+                        
+                        var temp = 0;
+                        for (i=0;i<$provDireitos.length-1;i++){
+                            temp = temp + $provDireitos[i];
+                        }
+
+                        $provDireitos[17] = temp;
+                            
+                        for (i = 0; i < destricao.length; i++){
+
+                            $tabela.append(
+                                "<tr>"+
+                                "<th>"+ destricao[i]+"</th>" +
+                                "<td>"+ Math.round10($ref_alterada[i],-2)+"</td>"+
+                                "<td>"+ Math.round10($valor[i],-2)+"</td>"+
+                                "<td>"+ Math.round10($provDireitos[i],-2)+" </td>"
+                            );       
+                            }
+                            $tabela.append(
+                                
+                                '</tbody>'+ '<tfoot >'+ '<tr >'+  '<th>Total </th>'+  '<td></td>'+
+                                    '<td></td >'+
+                                    '<th >'+Math.round10($provDireitos[17],-2)+'</th>'+
+                                    '</tr>'+
+                                '</tfoot>'
+                                    );
+                                    
+                    break;
+
+                    default:
+                        alert("Selecione o tipo de Remuneração");
                         
                 }
 
-                if($ope){
-                    $ope = false;
-                }else{
-                    $ope = true;
-                }
 
             }
             
